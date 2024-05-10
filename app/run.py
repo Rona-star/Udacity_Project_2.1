@@ -1,7 +1,9 @@
 import json
 import pandas as pd
+import plotly
 from flask import Flask, render_template, request
-from plotly.graph_objs import Bar, Pie
+# from plotly.graph_objs import Bar, Pie
+from plotly.express import bar as Bar, pie as Pie
 import joblib
 from sqlalchemy import create_engine
 from nltk.stem import WordNetLemmatizer
@@ -51,13 +53,20 @@ def index():
    # Load and preprocess data
    genre_names, genre_counts, category_names, category_counts = app_instance.preprocess_data(app_instance.df)
    # Create visualizations
+
+#    create df for Genres
+   Genredata = pd.DataFrame({'Genre': genre_names, 'Count': genre_counts})
+   Categorydata = pd.DataFrame({'Category': category_names, 'Count': category_counts})
+
    graphs = [
        {
            'id': 'graph1',
            'data': Bar(
-               x=genre_names,
-               y=genre_counts
-           ).to_json(),
+               Genredata,
+               title="Distribution of Message Genres",
+               x="Genre",
+               y="Count"
+           ),
            'layout': {
                'title': 'Distribution of Message Genres',
                'yaxis': {'title': "Count"},
@@ -67,9 +76,12 @@ def index():
        {
            'id': 'graph2',
            'data': Bar(
-               x=category_names,
-               y=category_counts
-           ).to_json(),
+               Categorydata,
+               title="Distribution of Message Categories",
+               y="Category",
+               x="Count",
+               orientation='h'
+           ),
            'layout': {
                'title': 'Distribution of Message Categories',
                'yaxis': {'title': "Count"},
@@ -80,15 +92,21 @@ def index():
            'id': 'graph3',
            'data': Pie(
                labels=category_names,
-               values=category_counts
-           ).to_json(),
+               names=category_names,
+               values=category_counts,
+               title ='Distribution of Message Categories (Pie Chart)',
+               width=1000, height=800
+           
+           ),
            'layout': {
                'title': 'Distribution of Message Categories (Pie Chart)'
            }
        }
    ]
+   graphsJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
+   ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
    # Render web page with plotly graphs
-   return render_template('master.html', graphs=json.dumps(graphs))
+   return render_template('master.html', graphsJSON = graphsJSON, ids=ids)
 
 # Predict page
 @app.route('/go', methods=['POST'])

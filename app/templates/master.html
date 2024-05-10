@@ -1,65 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Disasters</title>
-    <link rel="stylesheet" href="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmaxcdn.bootstrapcdn.com%2Fbootstrap%2F3.3.7%2Fcss%2Fbootstrap.min.css&data=05%7C02%7Crona.katuma1%40vodacom.co.tz%7C6d28aa62108e428e7d4108dc63a6b68e%7C68283f3b84874c86adb3a5228f18b893%7C0%7C0%7C638494814958700685%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=riB5oog2%2FwcHJ%2Bi429%2FucSR1WxrQa6Rfoqy73RHbTRU%3D&reserved=0" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmaxcdn.bootstrapcdn.com%2Fbootstrap%2F3.3.7%2Fcss%2Fbootstrap-theme.min.css&data=05%7C02%7Crona.katuma1%40vodacom.co.tz%7C6d28aa62108e428e7d4108dc63a6b68e%7C68283f3b84874c86adb3a5228f18b893%7C0%7C0%7C638494814958710069%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=mR4%2BT%2B1%2BO%2F6yxVg0eWvCUudY5WzB8cOu4bdnJn%2BLs7s%3D&reserved=0" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F3.3.1%2Fjquery.min.js&data=05%7C02%7Crona.katuma1%40vodacom.co.tz%7C6d28aa62108e428e7d4108dc63a6b68e%7C68283f3b84874c86adb3a5228f18b893%7C0%7C0%7C638494814958715097%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=XGus7nyq1xOTw9XZA%2Fn%2FhyuCRdPeYnZjdAiQmELTeDI%3D&reserved=0"></script>
-    <script src="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcdn.plot.ly%2Fplotly-latest.min.js&data=05%7C02%7Crona.katuma1%40vodacom.co.tz%7C6d28aa62108e428e7d4108dc63a6b68e%7C68283f3b84874c86adb3a5228f18b893%7C0%7C0%7C638494814958719881%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=ahbfaJhGoludaKjcF0UOQrljWhq4RgqSqDHKEXFGL%2B0%3D&reserved=0"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">Disaster Response Project</a>
+          <a class="navbar-brand" href="/">Disaster Response Project</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.udacity.com%2F&data=05%7C02%7Crona.katuma1%40vodacom.co.tz%7C6d28aa62108e428e7d4108dc63a6b68e%7C68283f3b84874c86adb3a5228f18b893%7C0%7C0%7C638494814958724536%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=8atym0YUE1k3C9giiXeLomxcpYA%2FpPrRqEBnzszdOPY%3D&reserved=0">Made with Udacity</a></li>
-                <li><a href="https://eur03.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2F&data=05%7C02%7Crona.katuma1%40vodacom.co.tz%7C6d28aa62108e428e7d4108dc63a6b68e%7C68283f3b84874c86adb3a5228f18b893%7C0%7C0%7C638494814958729148%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=hUAul5NMoJ%2FqiACwmV7bXfbiyfqFKEAEkLq68QSwOQ4%3D&reserved=0">Contact</a></li>
-            </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="https://www.udacity.com/">Made with Udacity</a></li>
+            <li><a href="https://github.com/">Contact</a></li>
+          </ul>
         </div>
-    </div>
-</nav>
-<div class="jumbotron">
-    <div class="container">
+      </div>
+    </nav>
+    <div class="jumbotron">
+      <div class="container">
         <h1 class="text-center">Disaster Response Project</h1>
         <p class="text-center">Analyzing message data for disaster response</p>
         <hr />
         <div class="row">
-            <div class="col-lg-12 form-group-lg">
-                <form action="/go" method="get">
-                    <input type="text" class="form-control form-control-lg" name="query" placeholder="Enter a message to classify">
-                    <div class="col-lg-offset-5">
-                        <button type="submit" class="btn btn-lg btn-success">Classify Message</button>
-                    </div>
-                </form>
-            </div>
+          <div class="col-lg-12 form-group-lg">
+            <form action="/go" method="get">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                name="query"
+                placeholder="Enter a message to classify"
+              />
+              <div class="col-lg-offset-5">
+                <button type="submit" class="btn btn-lg btn-success">Classify Message</button>
+              </div>
+            </form>
+          </div>
         </div>
         {% block message %} {% endblock %}
+      </div>
     </div>
-</div>
-<div class="container">
-    {% block content %}
-    <div class="page-header">
+    <div class="container">
+      {% block content %}
+      <div class="page-header">
         <h1 class="text-center">Overview of Training Dataset</h1>
+      </div>
+      {% endblock %} {% for id in ids %}
+      <div id="{{id}}"></div>
+      {% endfor %}
     </div>
-    {% endblock %}
-    {% for id in ids %}
-    <div id="{{id}}"></div>
-    {% endfor %}
-</div>
-<script type="text/javascript">
-    const graphs = {{graphJSON | safe}};
-    const ids = {{ids | safe}};
-
-    for (let i = 0; i < graphs.length; i++) {
-        Plotly.newPlot(ids[i], JSON.parse(graphs[i].data), JSON.parse(graphs[i].layout));
-    }
-</script>
-</body>
+    <script type="text/javascript">
+        const graphs = {{ graphsJSON | safe}};
+        const ids = {{ ids | safe}};
+        console.log(graphs)
+        for (let i in graphs) {
+            Plotly.plot(ids[i], graphs[i].data, graphs[i].layout)
+        }
+    </script>
+  </body>
 </html>
